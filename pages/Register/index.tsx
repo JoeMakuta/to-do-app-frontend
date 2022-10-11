@@ -17,14 +17,24 @@ const Register: NextPage = () => {
         <p className='text-white font-[lato] font-[320] text-[32px] leading-[38%] text-left align-top pt-10'>Register</p>
         </header>
         <section>
-          <form action="">
-            <Username_field Text="text" field_component='text' />
-            <Username_field Text="password" field_component='password'/>
-            <Button_component nameButton='Login' />
-            <Btn_reusable />
-            <Login_And_Signup Icon={faAppleAlt} namebtn="Register with Apple" />
-            <Login_And_Signup Icon={faG } namebtn="Register with Google" />
-          </form>
+          
+          <div className='flex flex-col pt-5'>
+            
+            <Username_field Text="text" field_component='username' />
+            <Username_field Text="password" field_component='password' />
+            <Username_field Text="password" field_component='comfirm password' />
+            <div className='btn-btn'>
+               <Button_component nameButton='Login' />
+           </div>
+           
+          </div>
+          <Btn_reusable />
+          <div>
+              <Login_And_Signup Icon={faAppleAlt} namebtn="Register with Apple" />
+              <Login_And_Signup Icon={faG } namebtn="Register with Google" />
+          </div> 
+          
+          
         </section>
       
       <footer>Already have an account? Login</footer>

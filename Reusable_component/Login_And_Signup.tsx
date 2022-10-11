@@ -20,7 +20,7 @@ const Login_And_Signup = ({ namebtn, Icon }: { namebtn: string, Icon: any }) => 
   return (
 	  <div>
 		  <FontAwesomeIcon icon={Icon} />
-		  <button onClick={HandleSubmit} type="submit">
+		  <button onClick={HandleSubmit} type="submit" >
 			  <a>
 				  <Link href="#">{namebtn}</Link>
 			  </a>

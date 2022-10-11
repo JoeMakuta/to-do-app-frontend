@@ -7,16 +7,14 @@ const Username_field = ({ field_component, Text }: { field_component: string; Te
 	
 	const handleChange = (e: any) => {
 		Value = e.target.value;
-		if (typeof Value === 'string') {
-			if (Value) {
+		if (Value) {
 				setInput(Value)
-			}
 		}
 	}
 	return (
-		<div>
+		<div className='flex flex-column Input-container'>
 			<label htmlFor={field_component} className='text-white font-[lato] font-[400] text-[16px] leading-[151%] regular  align-left '> {field_component}</label>
-			<input type={Text}  id={field_component} placeholder={field_fullfill_input} value={valueInput} onChange={handleChange} />
+			<input type={Text}  id={field_component}  placeholder={field_fullfill_input} value={valueInput} onChange={handleChange} className="input-field fill-[#1D1D1D]" />
 	    </div>)
 }
 export default Username_field
