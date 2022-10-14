@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+# npm run check-types || (
+# 	echo "your styles are wrong !!!"
+# 	false;
+# )
+# npm run check-format || (
+# 	echo "your styles are wrong !!!"
+# 	false;
+# )
+# npm run check-lint || (
+# 	echo "your code or an other things are wrong !!!"
+# 	false;
+# )
+# echo "code is looking good for me try to run build"
+# npm run build || (
+# 	echo "something is  wrong in your code !!!"
+# 	false;
+# )
+
+npm test
+npx lint-staged

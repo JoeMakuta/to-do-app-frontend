@@ -1,52 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.Input-container{
-	color: #979797;
-	margin-top: 20px;
-	display: flex;
-	flex-direction: column;
-	margin-left: 10px;
+.Input-container {
+  color: #979797;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
 }
-label{
-	margin-bottom: 5px;
-	text-transform: capitalize;
+label {
+  margin-bottom: 5px;
+  text-transform: capitalize;
 }
-input{
-	color: white;
-	background-color: #1D1D1D;
-	width: 95%;
-	height: 46px;
-	border: 1px solid #979797
+input {
+  color: white;
+  background-color: #1d1d1d;
+  width: 95%;
+  height: 46px;
+  border: 1px solid #979797;
 }
-.btn-btn{
-	width: 93%;
-	height: 46px;
-	color: white;
-	background-color: rgba(134, 135, 231, 0.5);
-	text-align: center;
-	margin-left: 10px;
-	margin-top: 25px;
-	padding: 10px;
-	text-transform: capitalize;
+.btn-btn {
+  width: 93%;
+  height: 46px;
+  color: white;
+  background-color: rgba(134, 135, 231, 0.5);
+  text-align: center;
+  margin-left: 10px;
+  margin-top: 25px;
+  padding: 10px;
+  text-transform: capitalize;
 }
-.flextext-center{
-	text-align: center;
+.flextext-center {
+  text-align: center;
 }
-.line-one{
-	width: 43%;
-	position: relative;
-	top: 35px;
-	left: 12px;	
+.line-one {
+  width: 43%;
+  position: relative;
+  top: 35px;
+  left: 12px;
 }
-.line-two{
-	width: 43%;
-	position: relative;
-	top: 10px;
-	left: 203px;
+.line-two {
+  width: 43%;
+  position: relative;
+  top: 10px;
+  left: 203px;
 }
-p{
-	color: #979797;
-	position: relative;
-		top: 20px;
+p {
+  color: #979797;
+  position: relative;
+  top: 20px;
 }
