@@ -11,18 +11,18 @@ export let ValueUsername: any;
 export let ValueEmail: any;
 export let ValuePassword: any;
 export let confirmValuePassword: any;
-const Register: NextPage = () => {
+const Login: NextPage = () => {
   const [ValOfInput, setValOfInput] = useState(null);
 
   return (
     <div className="bg-[#000000] h-screen">
       <div className="bg-[#E5E5E5]/[0.1] h-screen">
         <Head>
-          <title>Register||Uptodo</title>
+          <title>Login||Uptodo</title>
         </Head>
         <header>
           <p className="text-white font-[lato] font-[320] text-[32px] leading-[38%] text-left align-top pt-10">
-            Register
+            Login
           </p>
         </header>
 
@@ -37,14 +37,6 @@ const Register: NextPage = () => {
             Value={ValOfInput}
           />
           <TextInput
-            Type="email"
-            fieldComponent="email"
-            handleChange={(e: string | any) => {
-              ValueEmail = e.target.value;
-            }}
-            Value={ValOfInput}
-          />
-          <TextInput
             Type="password"
             fieldComponent="password"
             handleChange={(e: any) => {
@@ -52,28 +44,20 @@ const Register: NextPage = () => {
             }}
             Value={ValOfInput}
           />
-          <TextInput
-            Type="password"
-            fieldComponent="Confirm your password"
-            handleChange={(e: any) => {
-              confirmValuePassword = e.target.value;
-            }}
-            Value={ValOfInput}
-          />
           <div className="btn-btn">
-            <ButtonComponent nameButton="Register" />
+            <ButtonComponent nameButton="Login" />
           </div>
         </div>
         <BtnReusable />
         <div className="p-6">
-          <LoginAndSignup nameBtn="Register with Google" image="google.png" />
-          <LoginAndSignup nameBtn="Register with Apple" image="google.png" />
+          <LoginAndSignup nameBtn="Login with Google" image="google.png" />
+          <LoginAndSignup nameBtn="Login with Apple" image="google.png" />
         </div>
 
-        <footer className="text-center text-white">Already have an account? <Link href={"/login"}>Login</Link></footer>
+        <footer className="text-center text-white">Don't have an account? <Link href="/register">Register</Link></footer>
       </div>
     </div>
   );
 };
 
-export default Register;
+export default Login;

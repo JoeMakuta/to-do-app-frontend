@@ -41,5 +41,20 @@
     "postcss": "^8.4.14",
     "tailwindcss": "^3.1.2",
     "typescript": "^4.8.4"
-  }
+  },
+  "name": "todo-trial-web-portal",
+  "description": "> Built with",
+  "version": "1.0.0",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CRES-MCHANGO-UJUZI/todo-trial-web-portal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CRES-MCHANGO-UJUZI/todo-trial-web-portal/issues"
+  },
+  "homepage": "https://github.com/CRES-MCHANGO-UJUZI/todo-trial-web-portal#readme"
 }
