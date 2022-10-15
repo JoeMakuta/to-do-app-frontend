@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: rgb(18, 18, 18);
+}
 .Input-container {
   color: #979797;
   margin-top: 20px;
