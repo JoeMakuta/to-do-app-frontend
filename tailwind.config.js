@@ -11,6 +11,7 @@ module.exports = {
         LightIdingo: "rgb(171, 173, 237)",
         darkIndogo: "rgb(18, 18, 18)",
         lightGrey: "rgb(147, 147, 147)",
+        semigray: "rgb(55, 56, 56)",
       },
     },
     screens: {

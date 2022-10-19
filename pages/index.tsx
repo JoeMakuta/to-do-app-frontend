@@ -21,7 +21,8 @@ const Home: NextPage = () => {
           </div>
           {/* Menu */}
           <div className="hidden space-x-6 text-white md:flex">
-            <a className="hover:text-indigo-500" href="#">Home</a>
+            <Link href={"/home"} className="text-LightIdingo"><a className="hover:text-indigo-500" href="#">Home</a></Link>
+            {/* <a className="hover:text-indigo-500" href="#"></a> */}
             <a className="hover:text-indigo-500" href="#">FAQ</a>
             <a className="hover:text-indigo-500" href="#">About</a>
           </div>
@@ -147,6 +148,8 @@ const Home: NextPage = () => {
 
         </div>
       </footer>
+
+
 
     </div>
   );

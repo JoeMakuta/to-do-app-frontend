@@ -118,49 +118,6 @@ const Register: NextPage = () => {
           </div>
         </div>
 
-        {/* <div className="flex flex-col pt-5">
-          <TextInput
-            Type="text"
-            fieldComponent="Username"
-            handleChange={(e: string | any) => {
-              ValueUsername = e.target.value;
-              console.log(ValueUsername);
-            }}
-            Value={ValOfInput}
-          />
-          <TextInput
-            Type="email"
-            fieldComponent="email"
-            handleChange={(e: string | any) => {
-              ValueEmail = e.target.value;
-            }}
-            Value={ValOfInput}
-          />
-          <TextInput
-            Type="password"
-            fieldComponent="password"
-            handleChange={(e: any) => {
-              ValuePassword = e.target.value;
-            }}
-            Value={ValOfInput}
-          />
-          <TextInput
-            Type="password"
-            fieldComponent="Confirm your password"
-            handleChange={(e: any) => {
-              confirmValuePassword = e.target.value;
-            }}
-            Value={ValOfInput}
-          />
-          <div className="btn-btn">
-            <ButtonComponent nameButton="Register" />
-          </div>
-        </div>
-        <BtnReusable />
-        <div className="p-6">
-          <LoginAndSignup nameBtn="Register with Google" image="google.png" />
-          <LoginAndSignup nameBtn="Register with Apple" image="google.png" />
-        </div> */}
         <footer className="bg-brightIdingo">
           <div className="container flex.flex-col reversejustify betweenpx-6 py-10 mx-auto space-y-8 md:flex-row md:space-y-0">
             {/* Logo and socials links */}
