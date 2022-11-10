@@ -1,7 +1,21 @@
-import { AUTH_ERROR, AUTH_LOADING, AUTH_SUCCESS, LOGIN } from "./actionAuth";
+import {
+  AUTH_ERROR,
+  AUTH_LOADING,
+  AUTH_LOGIN_SUCCESS,
+  AUTH_SIGNUP_SUCCESS,
+} from "./actionAuth";
+
+let user;
+if (typeof window !== "undefined") {
+  if (localStorage.getItem("cres-todo-user")) {
+    user = JSON.parse(localStorage.getItem("cres-todo-user")!);
+  } else {
+    user = null;
+  }
+}
 
 const initialState = {
-  user: null,
+  user: user || null,
   isLoading: false,
   isSuccess: false,
   isError: false,
@@ -18,7 +32,15 @@ export const authReducer = (state = initialState, action: any) => {
         isError: false,
         user: null,
       };
-    case AUTH_SUCCESS:
+    case AUTH_LOGIN_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        isSuccess: true,
+        isError: false,
+        user: action.payload,
+      };
+    case AUTH_SIGNUP_SUCCESS:
       return {
         ...state,
         isLoading: false,
@@ -31,7 +53,7 @@ export const authReducer = (state = initialState, action: any) => {
         ...state,
         isLoading: false,
         isSuccess: false,
-        isErrror: true,
+        isError: true,
         errorMessage: action.payload,
       };
 

@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import Head from "next/head";
 import TextInput from "../../reusableComponent/TextInput";
 import { ButtonComponent } from "../../reusableComponent/ButtonComponent";
@@ -7,14 +7,17 @@ import { BtnReusable } from "../../reusableComponent/BtnReusable";
 import LoginAndSignup from "../../reusableComponent/LoginAndSignup";
 import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
-import { login } from "../../data/auth/actionAuth";
+import { signup } from "../../data/auth/actionAuth";
 import { AppDispatch } from "../../data/store";
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 export let ValueUsername: any;
 export let ValueEmail: any;
 export let ValuePassword: any;
 export let confirmValuePassword: any;
 const Register: NextPage = () => {
+  const router = useRouter();
   const dispatch = useDispatch<AppDispatch>();
   const [ValOfInput, setValOfInput] = useState({
     username: "",
@@ -22,8 +25,9 @@ const Register: NextPage = () => {
     password: "",
     password2: "",
   });
-  const auth = useSelector((state: any) => state.auth);
-  console.log(auth);
+  const { errorMessage, isError, isLoading, isSuccess, user } = useSelector(
+    (state: any) => state.auth
+  );
 
   const handleChange = (e: any) => {
     setValOfInput({ ...ValOfInput, [e.target.name]: e.target.value });
@@ -31,10 +35,20 @@ const Register: NextPage = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    if (ValOfInput.password !== ValOfInput.password2) {
+      return toast.error(`passwords must match`);
+    }
     const { password2, ...data } = ValOfInput;
-    dispatch(login(data));
-    console.log(ValOfInput);
+    dispatch(signup(data));
   };
+
+  useEffect(() => {
+    if (isError) toast.error(errorMessage);
+    if (isSuccess || user) {
+      toast.success(`connected as ${user.email ?? ""}`);
+      router.replace("/home");
+    }
+  }, [isError, isSuccess, user, errorMessage]);
 
   return (
     <div className="bg-[#000000] h-screen">

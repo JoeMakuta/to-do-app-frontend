@@ -1,19 +1,55 @@
 import type { NextPage } from "next";
-import { useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import Head from "next/head";
 import TextInput from "../../reusableComponent/TextInput";
 import { ButtonComponent } from "../../reusableComponent/ButtonComponent";
 import { BtnReusable } from "../../reusableComponent/BtnReusable";
 import LoginAndSignup from "../../reusableComponent/LoginAndSignup";
 import Link from "next/link";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
+import { toast } from "react-toastify";
+import { login } from "../../data/auth/actionAuth";
+import { AppDispatch } from "../../data/store";
 
 export let ValueUsername: any;
 export let ValueEmail: any;
 export let ValuePassword: any;
 export let confirmValuePassword: any;
 const Login: NextPage = () => {
-  const [ValOfInput, setValOfInput] = useState(null);
+  const router = useRouter();
+  const dispatch = useDispatch<AppDispatch>();
+  const [ValOfInput, setValOfInput] = useState({
+    email: "",
+    password: "",
+  });
+  const { errorMessage, isError, isLoading, isSuccess, user } = useSelector(
+    (state: any) => state.auth
+  );
+
+  const handleChange = (e: any) => {
+    setValOfInput({ ...ValOfInput, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (ValOfInput.password == "" || ValOfInput.email == "") {
+      return toast.error(`some data missing`);
+    }
+    const { ...data } = ValOfInput;
+    dispatch(login(data));
+  };
+
+  useEffect(() => {
+    toast.error(errorMessage);
+  }, [isError]);
+
+  useEffect(() => {
+    if (isSuccess || user) {
+      toast.success(`connected as ${user.email ?? ""}`);
+      router.replace("/home");
+    }
+  }, [isError, isSuccess, user]);
 
   return (
     <div className="bg-[#000000] h-screen">
@@ -53,30 +89,23 @@ const Login: NextPage = () => {
         <div className="container flex flex-col-reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
           {/* image */}
           <div className="md:w-1/2">
-            <div className="flex flex-col pt-5">
+            <form onSubmit={handleSubmit} className="flex flex-col pt-5">
               <TextInput
-                Type="text"
-                name="username"
-                fieldComponent="Username"
-                handleChange={(e: string | any) => {
-                  ValueUsername = e.target.value;
-                  console.log(ValueUsername);
-                }}
-                // Value={ValOfInput}
+                Type="email"
+                name="email"
+                fieldComponent="email"
+                handleChange={handleChange}
               />
               <TextInput
                 Type="password"
                 name="password"
                 fieldComponent="password"
-                handleChange={(e: any) => {
-                  ValuePassword = e.target.value;
-                }}
-                // Value={ValOfInput}
+                handleChange={handleChange}
               />
               <div className="btn-btn">
                 <ButtonComponent nameButton="Login" />
               </div>
-            </div>
+            </form>
             <BtnReusable />
             <div className="p-6">
               <LoginAndSignup nameBtn="Login with Google" image="google.png" />
