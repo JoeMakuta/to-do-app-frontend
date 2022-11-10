@@ -6,6 +6,7 @@ import { ButtonComponent } from "../../reusableComponent/ButtonComponent";
 import { BtnReusable } from "../../reusableComponent/BtnReusable";
 import LoginAndSignup from "../../reusableComponent/LoginAndSignup";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 export let ValueUsername: any;
 export let ValueEmail: any;
@@ -13,6 +14,8 @@ export let ValuePassword: any;
 export let confirmValuePassword: any;
 const Register: NextPage = () => {
   const [ValOfInput, setValOfInput] = useState(null);
+  const auth = useSelector((state: any) => state.auth);
+  console.log(auth);
 
   return (
     <div className="bg-[#000000] h-screen">
@@ -34,23 +37,22 @@ const Register: NextPage = () => {
             </div>
             {/* Menu */}
             <div className="hidden space-x-6 text-white md:flex">
-              <a className="hover:text-indigo-500" href="#">Home</a>
-              <a className="hover:text-indigo-500" href="#">FAQ</a>
-              <a className="hover:text-indigo-500" href="#">About</a>
+              <a className="hover:text-indigo-500" href="#">
+                Home
+              </a>
+              <a className="hover:text-indigo-500" href="#">
+                FAQ
+              </a>
+              <a className="hover:text-indigo-500" href="#">
+                About
+              </a>
             </div>
             {/* Boutton */}
             {/* <a href="/register" className="hidden p-3 px-6 pt-2 text-white bg-brightIdingo baseline hover:bg-LightIdingo md:block">Get Started</a> */}
-
-
           </div>
-
-
         </nav>
 
-
         <div className="container flex flex-col-reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
-
-
           {/* image */}
           <div className="md:w-1/2">
             <div className="flex flex-col pt-5">
@@ -93,14 +95,20 @@ const Register: NextPage = () => {
             </div>
             <BtnReusable />
             <div className="p-6">
-              <LoginAndSignup nameBtn="Register with Google" image="google.png" />
-              <LoginAndSignup nameBtn="Register with Apple" image="google.png" />
+              <LoginAndSignup
+                nameBtn="Register with Google"
+                image="google.png"
+              />
+              <LoginAndSignup
+                nameBtn="Register with Apple"
+                image="google.png"
+              />
             </div>
-
           </div>
           <h1 className="max-w-md text-4xl font-bold text-center md:text-5xl md:text-left text-darkIndogo mt-20">
             Register
-          </h1><h1 className="max-w-md text-4xl font-bold text-center md:text-5xl md:text-left text-darkIndogo mt-20">
+          </h1>
+          <h1 className="max-w-md text-4xl font-bold text-center md:text-5xl md:text-left text-darkIndogo mt-20">
             Register
           </h1>
 
@@ -110,7 +118,12 @@ const Register: NextPage = () => {
               Register
             </h1>
             <p className="max-w-sm text-center text-lightGrey md:text-left">
-              Welcome to Uptodo, create a new account.<br />Already have an account? <Link href={"/login"} className="text-LightIdingo">Please Login</Link>
+              Welcome to Uptodo, create a new account.
+              <br />
+              Already have an account?{" "}
+              <Link href={"/login"} className="text-LightIdingo">
+                Please Login
+              </Link>
             </p>
             <div className="flex justify-center md:justify-start">
               {/* <a href="" className="hidden p-3 px-6 pt-2 text-white bg-brightIdingo baseline hover:bg-LightIdingo md:block">Get Started</a> */}
@@ -148,12 +161,10 @@ const Register: NextPage = () => {
                 Copyright &copy;2022, All Rights Reserved Ujuzi
               </div>
             </div>
-
-
           </div>
         </footer>
-      </div >
-    </div >
+      </div>
+    </div>
   );
 };
 
