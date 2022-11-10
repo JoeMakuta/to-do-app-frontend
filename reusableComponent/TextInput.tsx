@@ -1,8 +1,9 @@
 interface textInput {
   fieldComponent: string;
   Type: string;
-  handleChange: any;
-  Value: string | any | null;
+  handleChange: (e: any) => void;
+  // Value: string | any | null;
+  name: string;
 }
 
 import { useState } from "react";
@@ -11,7 +12,8 @@ const TextInput = ({
   fieldComponent,
   Type,
   handleChange,
-  Value,
+  // Value,
+  name,
 }: textInput) => {
   return (
     <div className="flex flex-column Input-container">
@@ -19,8 +21,9 @@ const TextInput = ({
       <input
         type={Type}
         placeholder={`enter your  ${fieldComponent}`}
-        value={Value}
+        // value={Value}
         onChange={handleChange}
+        name={name}
       />
     </div>
   );

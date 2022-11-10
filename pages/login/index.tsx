@@ -56,20 +56,22 @@ const Login: NextPage = () => {
             <div className="flex flex-col pt-5">
               <TextInput
                 Type="text"
+                name="username"
                 fieldComponent="Username"
                 handleChange={(e: string | any) => {
                   ValueUsername = e.target.value;
                   console.log(ValueUsername);
                 }}
-                Value={ValOfInput}
+                // Value={ValOfInput}
               />
               <TextInput
                 Type="password"
+                name="password"
                 fieldComponent="password"
                 handleChange={(e: any) => {
                   ValuePassword = e.target.value;
                 }}
-                Value={ValOfInput}
+                // Value={ValOfInput}
               />
               <div className="btn-btn">
                 <ButtonComponent nameButton="Login" />

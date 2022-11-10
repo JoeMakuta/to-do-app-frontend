@@ -1,21 +1,40 @@
 import type { NextPage } from "next";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import Head from "next/head";
 import TextInput from "../../reusableComponent/TextInput";
 import { ButtonComponent } from "../../reusableComponent/ButtonComponent";
 import { BtnReusable } from "../../reusableComponent/BtnReusable";
 import LoginAndSignup from "../../reusableComponent/LoginAndSignup";
 import Link from "next/link";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { login } from "../../data/auth/actionAuth";
+import { AppDispatch } from "../../data/store";
 
 export let ValueUsername: any;
 export let ValueEmail: any;
 export let ValuePassword: any;
 export let confirmValuePassword: any;
 const Register: NextPage = () => {
-  const [ValOfInput, setValOfInput] = useState(null);
+  const dispatch = useDispatch<AppDispatch>();
+  const [ValOfInput, setValOfInput] = useState({
+    username: "",
+    email: "",
+    password: "",
+    password2: "",
+  });
   const auth = useSelector((state: any) => state.auth);
   console.log(auth);
+
+  const handleChange = (e: any) => {
+    setValOfInput({ ...ValOfInput, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    const { password2, ...data } = ValOfInput;
+    dispatch(login(data));
+    console.log(ValOfInput);
+  };
 
   return (
     <div className="bg-[#000000] h-screen">
@@ -55,44 +74,35 @@ const Register: NextPage = () => {
         <div className="container flex flex-col-reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
           {/* image */}
           <div className="md:w-1/2">
-            <div className="flex flex-col pt-5">
+            <form onSubmit={handleSubmit} className="flex flex-col pt-5">
               <TextInput
                 Type="text"
-                fieldComponent="Username"
-                handleChange={(e: string | any) => {
-                  ValueUsername = e.target.value;
-                  console.log(ValueUsername);
-                }}
-                Value={ValOfInput}
+                name="username"
+                fieldComponent="username"
+                handleChange={handleChange}
               />
               <TextInput
                 Type="email"
+                name="email"
                 fieldComponent="email"
-                handleChange={(e: string | any) => {
-                  ValueEmail = e.target.value;
-                }}
-                Value={ValOfInput}
+                handleChange={handleChange}
               />
               <TextInput
                 Type="password"
+                name="password"
                 fieldComponent="password"
-                handleChange={(e: any) => {
-                  ValuePassword = e.target.value;
-                }}
-                Value={ValOfInput}
+                handleChange={handleChange}
               />
               <TextInput
                 Type="password"
+                name="password2"
                 fieldComponent="Confirm your password"
-                handleChange={(e: any) => {
-                  confirmValuePassword = e.target.value;
-                }}
-                Value={ValOfInput}
+                handleChange={handleChange}
               />
               <div className="btn-btn">
                 <ButtonComponent nameButton="Register" />
               </div>
-            </div>
+            </form>
             <BtnReusable />
             <div className="p-6">
               <LoginAndSignup

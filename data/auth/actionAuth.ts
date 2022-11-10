@@ -29,10 +29,16 @@ export const login = (userData: any) => {
   return async (dispatch: any) => {
     dispatch(authLoading());
     try {
-      const res = await axios.post(`${BACKEND_API}/signin`, userData);
+      const res = await axios.post(`${BACKEND_API}/signup`, userData);
       dispatch(authSuccess(res.data));
-    } catch (error) {
-      return dispatch(authError(error));
+    } catch (error: any) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return dispatch(authError(message));
     }
   };
 };

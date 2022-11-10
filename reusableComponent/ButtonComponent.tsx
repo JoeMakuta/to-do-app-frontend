@@ -9,6 +9,7 @@ export const ButtonComponent = ({ nameButton }: { nameButton: string }) => {
     username: any | string;
     email: any | string;
     password: any;
+    type?: string;
   }
   const HandleClick = (e: any) => {
     e.preventDefault();
@@ -39,9 +40,7 @@ export const ButtonComponent = ({ nameButton }: { nameButton: string }) => {
   };
   return (
     <div>
-      <button type="submit" onClick={HandleClick}>
-        {nameButton}
-      </button>
+      <button type="submit">{nameButton}</button>
     </div>
   );
 };
