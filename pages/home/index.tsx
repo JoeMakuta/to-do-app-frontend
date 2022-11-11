@@ -1,12 +1,47 @@
 import type { NextPage } from "next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { inputTask } from "../../reusableComponent/iconComponent/inputTask";
 import { IconComponnent } from "../../reusableComponent/iconComponent/IconComponnent";
 import { Button } from "../../reusableComponent/iconComponent/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch } from "../../data/store";
+import {
+  addTasks,
+  deleteTask,
+  getOneTask,
+  getTasks,
+  updateTask,
+} from "../../data/tasks/tasksActions";
 
 const Home: NextPage = () => {
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch<AppDispatch>();
+
+  // console.log(state);
+
+  useEffect(() => {
+    // dispatch(getTasks());
+    // dispatch(getOneTask("636e4d58a4544a74f866e157"));
+    // dispatch(
+    //   updateTask("636e4d58a4544a74f866e157", {
+    //     title: "Updated task",
+    //     description: "updated task from frontend",
+    //     dateOfCompletion: new Date().toString(),
+    //     status: "IN_PROGRESS",
+    //   })
+    // );
+    // dispatch(deleteTask("636e51f2a4544a74f866e174"));
+    // dispatch(
+    //   addTasks({
+    //     title: "example 2",
+    //     description: "example 2",
+    //     dateOfCompletion: new Date().toString(),
+    //     status: "IN_PROGRESS",
+    //   })
+    // );
+  }, []);
 
   return (
     <div className="h-screen flex-auto">
@@ -14,33 +49,56 @@ const Home: NextPage = () => {
         {/* sidebar */}
         <div className="w-64 bg-darkIndogo  border-r items-center">
           <div className="flex pt-10 pl-1">
-            <img src="/logoUptodo.PNG" alt="logoUptodo" className="w-20  items-center" />
+            <img
+              src="/logoUptodo.PNG"
+              alt="logoUptodo"
+              className="w-20  items-center"
+            />
             {/* <h3 className="pt-5 text-white">Manage your tasks</h3> */}
           </div>
           <div className="mt-8">
             <nav>
               <div className="mt-2 -mx-3">
                 <div className="hover:bg-semigray">
-                  <Link href={'home'}><a href="/#" className="flex  text-gray-600 justify-between px-20 py-6 items-center">
-                    <span className="font-medium">Index</span>
-                  </a></Link>
+                  <Link href={"home"}>
+                    <a
+                      href="/#"
+                      className="flex  text-gray-600 justify-between px-20 py-6 items-center"
+                    >
+                      <span className="font-medium">Index</span>
+                    </a>
+                  </Link>
                 </div>
                 <div className="hover:bg-semigray">
-                  <Link href={'home'}><a href="/#" className="flex  text-gray-600 justify-between px-20 py-6 items-center">
-                    <span className="font-medium">Tasks</span>
-                  </a></Link>
+                  <Link href={"home"}>
+                    <a
+                      href="/#"
+                      className="flex  text-gray-600 justify-between px-20 py-6 items-center"
+                    >
+                      <span className="font-medium">Tasks</span>
+                    </a>
+                  </Link>
                 </div>
                 <div className="hover:bg-semigray">
-                  <Link href={'home'}><a href="/#" className="flex  text-gray-600 justify-between px-20 py-6 items-center">
-                    <span className="font-medium">Calendar</span>
-                  </a></Link>
+                  <Link href={"home"}>
+                    <a
+                      href="/#"
+                      className="flex  text-gray-600 justify-between px-20 py-6 items-center"
+                    >
+                      <span className="font-medium">Calendar</span>
+                    </a>
+                  </Link>
                 </div>
                 <div className="hover:bg-semigray">
-                  <Link href={'home'}><a href="/#" className="flex  text-gray-600 justify-between px-20 py-6 items-center">
-                    <span className="font-medium">Focuse</span>
-                  </a></Link>
+                  <Link href={"home"}>
+                    <a
+                      href="/#"
+                      className="flex  text-gray-600 justify-between px-20 py-6 items-center"
+                    >
+                      <span className="font-medium">Focuse</span>
+                    </a>
+                  </Link>
                 </div>
-
               </div>
             </nav>
           </div>
@@ -77,34 +135,49 @@ const Home: NextPage = () => {
                 <form action="#" method="post" className="space-y-6">
                   <div>
                     <label htmlFor="">Task name</label>
-                    <input className="bg-semigray border-lightGrey" type="text" name="" id="" />
+                    <input
+                      className="bg-semigray border-lightGrey"
+                      type="text"
+                      name=""
+                      id=""
+                    />
                   </div>
                   <div>
                     <label htmlFor="">Task Description</label>
-                    <input className="bg-semigray border-lightGrey" type="text" />
+                    <input
+                      className="bg-semigray border-lightGrey"
+                      type="text"
+                    />
                   </div>
                   <div>
                     <label htmlFor="">Date and Time</label>
-                    <input className="bg-semigray border-lightGrey" type="datetime-local" name="" id="" />
+                    <input
+                      className="bg-semigray border-lightGrey"
+                      type="datetime-local"
+                      name=""
+                      id=""
+                    />
                   </div>
                   <div>
                     <label htmlFor="">Task Priority</label>
                     <div className="flex align-middle">
-                      <input className="w-4" type="radio" name="priority" value={'1'} />
-                      <IconComponnent icon={'drapeau'} label={'1'} />
+                      <input
+                        className="w-4"
+                        type="radio"
+                        name="priority"
+                        value={"1"}
+                      />
+                      <IconComponnent icon={"drapeau"} label={"1"} />
                     </div>
                   </div>
                   {/* <Button butonName="Save" /> */}
                 </form>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>
-
-    </div >
+    </div>
   );
 };
 
