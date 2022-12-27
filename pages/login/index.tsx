@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { FormEvent, useEffect, useState } from "react";
+import React,{ FormEvent, useEffect, useState } from "react";
 import Head from "next/head";
 import TextInput from "../../reusableComponent/TextInput";
 import { ButtonComponent } from "../../reusableComponent/ButtonComponent";
@@ -23,17 +23,17 @@ const Login: NextPage = () => {
     email: "",
     password: "",
   });
-  const { errorMessage, isError, isLoading, isSuccess, user } = useSelector(
+  const { errorMessage, isError, isSuccess, user } = useSelector(
     (state: any) => state.auth
   );
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: any): void => {
     setValOfInput({ ...ValOfInput, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent): any => {
     e.preventDefault();
-    if (ValOfInput.password == "" || ValOfInput.email == "") {
+    if (ValOfInput.password === "" || ValOfInput.email === "") {
       return toast.error(`some data missing`);
     }
     const { ...data } = ValOfInput;
@@ -45,9 +45,10 @@ const Login: NextPage = () => {
   }, [isError]);
 
   useEffect(() => {
-    if (isSuccess || user) {
+    if ((Boolean(isSuccess)) || (Boolean(user))) {
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       toast.success(`connected as ${user.email ?? ""}`);
-      router.replace("/home");
+      void router.replace("/home");
     }
   }, [isError, isSuccess, user]);
 
@@ -127,7 +128,7 @@ const Login: NextPage = () => {
             <p className="max-w-sm text-center text-lightGrey md:text-left">
               Welcome to Uptodo, connect to your account.
               <br />
-              Don't have an account?{" "}
+              Don&apos;t have an account?{" "}
               <Link href={"/login"} className="text-LightIdingo">
                 Register here
               </Link>
@@ -205,7 +206,7 @@ const Login: NextPage = () => {
               </div>
               <div className="flex flex-col space-y-3 text-white">
                 <a href="#">Terms et confidentialités</a>
-                <a href="#">Conditions d'utilisation</a>
+                <a href="#">Conditions d&apos;utilisation</a>
               </div>
               <div className="hidden text-center my-6 text-white md:block">
                 Copyright &copy;2022, All Rights Reserved Ujuzi
