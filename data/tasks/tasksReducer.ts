@@ -18,6 +18,7 @@ const initialState: iTasks = {
   isError: false,
   typeError: "NONE",
   errorMessage: "",
+  successMessage: "NONE",
 };
 
 export const tasksReducer = (state = initialState, action: any) => {
@@ -40,6 +41,7 @@ export const tasksReducer = (state = initialState, action: any) => {
         isSuccess: true,
         isError: false,
         typeError: "NONE",
+        successMessage: "ADD_SUCCESS",
         tasks: [...state.tasks, action.payload.data],
       };
     case TASKS_GET_SUCCESS:
@@ -49,6 +51,7 @@ export const tasksReducer = (state = initialState, action: any) => {
         isSuccess: true,
         isError: false,
         typeError: "NONE",
+        successMessage: "GET_ALL_SUCCESS",
         tasks: action.payload.Task,
       };
 
@@ -59,6 +62,7 @@ export const tasksReducer = (state = initialState, action: any) => {
         isSuccess: true,
         isError: false,
         typeError: "NONE",
+        successMessage: "GET_ONE_SUCCESS",
         tasks: action.payload,
       };
 
@@ -69,6 +73,7 @@ export const tasksReducer = (state = initialState, action: any) => {
         isSuccess: true,
         isError: false,
         typeError: "NONE",
+        successMessage: "DELETE_SUCCESS",
         tasks: state.tasks.filter(
           (el: iTask) => el._id !== action.payload.data._id
         ),
@@ -81,6 +86,7 @@ export const tasksReducer = (state = initialState, action: any) => {
         isSuccess: true,
         isError: false,
         typeError: "NONE",
+        successMessage: "UPDATE_SUCCESS",
         tasks: state.tasks.map((el) =>
           el._id?.toString() === action.payload.data._id.toString()
             ? action.payload.data
@@ -96,6 +102,7 @@ export const tasksReducer = (state = initialState, action: any) => {
         isError: true,
         typeError: action.payload.typeError,
         errorMessage: action.payload.error,
+        successMessage: "NONE",
       };
 
     default:

@@ -2,8 +2,8 @@ export interface iTask {
   _id?: string;
   title: string;
   description: string;
-  dateOfCreattion?: string;
-  dateOfCompletion: string;
+  dateOfCreattion?: Date;
+  dateOfCompletion: Date;
   status: "IN_PROGRESS" | "DONE";
 }
 
@@ -19,5 +19,14 @@ export interface iTasks {
     | "DELETE_ERROR"
     | "GET_ONE_ERROR"
     | "UPDATE_ONE_ERROR";
-  errorMessage: "";
+  errorMessage: string;
+  successMessage: string;
+}
+
+export interface iTaskInput {
+  name: string;
+  description: string;
+  priority: number;
+  deadline: string;
+  categories: string[];
 }

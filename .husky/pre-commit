@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
+# . "$(dirname -- "$0")/_/husky.sh"
 # npm run check-types || (
 # 	echo "your styles are wrong !!!"
 # 	false;
@@ -18,5 +18,5 @@
 # 	false;
 # )
 
-npm test
-npx lint-staged
+# npm test
+# npx lint-staged

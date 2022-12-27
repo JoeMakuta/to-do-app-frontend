@@ -12,35 +12,46 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* Navbar Start */}
-      <nav className="relative container mx-auto p-6">
-        {/* Flex container */}
+      {/* <nav className="relative container mx-auto p-6">
         <div className="flex items-center justify-between">
-          {/* Log */}
           <div className="pt-2">
             <img src="/logoUptodo.PNG" alt="logoUptodo" className="w-20" />
           </div>
-          {/* Menu */}
           <div className="hidden space-x-6 text-white md:flex">
-            <Link href={"/home"} className="text-LightIdingo"><a className="hover:text-indigo-500" href="#">Home</a></Link>
-            {/* <a className="hover:text-indigo-500" href="#"></a> */}
-            <a className="hover:text-indigo-500" href="#">FAQ</a>
-            <a className="hover:text-indigo-500" href="#">About</a>
+            <Link href={"/home"} className="text-LightIdingo">
+              <a className="hover:text-indigo-500" href="#">
+                Home
+              </a>
+            </Link>
+            <a className="hover:text-indigo-500" href="#">
+              FAQ
+            </a>
+            <a className="hover:text-indigo-500" href="#">
+              About
+            </a>
           </div>
-          {/* Boutton */}
-          <a href="/register" className="hidden p-3 px-6 pt-2 text-white bg-brightIdingo baseline hover:bg-LightIdingo md:block">Get Started</a>
-
-
+          <a
+            href="/register"
+            className="hidden p-3 px-6 pt-2 text-white bg-brightIdingo baseline hover:bg-LightIdingo md:block"
+          >
+            Get Started
+          </a>
         </div>
 
-        {/* menu on mobile */}
         <div className="md hidden">
-          <div id="menu" className="absolute flex flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md">
-            <a className="hover:text-indigo-500" href="#">Home</a>
-            <a className="hover:text-indigo-500" href="#">About</a>
+          <div
+            id="menu"
+            className="absolute flex flex-col items-center sm:hidden self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"
+          >
+            <a className="hover:text-indigo-500" href="#">
+              Home
+            </a>
+            <a className="hover:text-indigo-500" href="#">
+              About
+            </a>
           </div>
         </div>
-
-      </nav>
+      </nav> */}
       {/* Navbar End */}
 
       {/* Sections */}
@@ -56,8 +67,18 @@ const Home: NextPage = () => {
               You can easily manage all of your daily tasks in DoMe for Free
             </p>
             <div className="flex justify-center md:justify-start">
-              <a href="/login" className="hidden p-3 px-6 pt-2 text-white bg-brightIdingo baseline hover:bg-LightIdingo md:block">Login</a>
-              <a href="/register" className="hidden ml-3 p-3 px-6 pt-2 text-white bg-white text-brightIdingo baseline hover:bg-brightIdingo hover:text-white md:block">Free Register</a>
+              <a
+                href="/login"
+                className="hidden p-3 px-6 pt-2 text-white bg-brightIdingo baseline hover:bg-LightIdingo md:block"
+              >
+                Login
+              </a>
+              <a
+                href="/register"
+                className="hidden ml-3 p-3 px-6 pt-2 text-white bg-white text-brightIdingo baseline hover:bg-brightIdingo hover:text-white md:block"
+              >
+                Free Register
+              </a>
             </div>
           </div>
           {/* image */}
@@ -70,8 +91,6 @@ const Home: NextPage = () => {
       {/* Hero2 section */}
       <section id="hero2">
         <div className="container flex flex-col-reverse md:flex-row items-center px-6 mx-auto mt-10 space-y-0 md:space-y-0">
-
-
           {/* image */}
           <div className="md:w-1/2">
             <img src="/image2.PNG" alt="" className="h-96" />
@@ -82,7 +101,8 @@ const Home: NextPage = () => {
               Create daily routine
             </h1>
             <p className="max-w-sm text-center text-lightGrey md:text-left">
-              In Uptodo you can create your personalised routine to stay productive
+              In Uptodo you can create your personalised routine to stay
+              productive
             </p>
             <div className="flex justify-center md:justify-start">
               {/* <a href="" className="hidden p-3 px-6 pt-2 text-white bg-brightIdingo baseline hover:bg-LightIdingo md:block">Get Started</a> */}
@@ -100,7 +120,8 @@ const Home: NextPage = () => {
               Organize your Tasks
             </h1>
             <p className="max-w-sm text-center text-lightGrey md:text-left">
-              You can organize your daily tasks by adding your tasks into separate categories
+              You can organize your daily tasks by adding your tasks into
+              separate categories
             </p>
             <div className="flex justify-center md:justify-start">
               {/* <a href="" className="hidden p-3 px-6 pt-2 text-white bg-brightIdingo baseline hover:bg-LightIdingo md:block">Get Started</a> */}
@@ -144,13 +165,8 @@ const Home: NextPage = () => {
               Copyright &copy;2022, All Rights Reserved Ujuzi
             </div>
           </div>
-
-
         </div>
       </footer>
-
-
-
     </div>
   );
 };

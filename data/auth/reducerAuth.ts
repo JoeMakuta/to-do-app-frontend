@@ -15,7 +15,7 @@ if (typeof window !== "undefined") {
 }
 
 const initialState = {
-  user: user || null,
+  user: user || "vb",
   isLoading: false,
   isSuccess: false,
   isError: false,
