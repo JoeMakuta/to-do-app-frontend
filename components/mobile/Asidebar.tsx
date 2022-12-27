@@ -1,8 +1,6 @@
 import Link from "next/link";
 import React from "react";
 import {
-  FaAd,
-  FaAngleRight,
   FaDesktop,
   FaFigma,
   FaHome,
@@ -10,7 +8,7 @@ import {
 } from "react-icons/fa";
 import { VscAdd } from "react-icons/vsc";
 
-const Asidebar = () => {
+const Asidebar = (): JSX.Element => {
   return (
     <div className="block sm:hidden w-screen  categories text-slate-100 p-2">
       <h2 className="text-2xl py-2">My categories</h2>
