@@ -13,7 +13,7 @@ export const getStaticPaths = async (context: any): Promise<any> => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/restrict-template-expressions
   // const res = await axios.get(`${API}/users`);
    return {
-    paths: [{ params: { id: '1' } }, { params: { id: '2' } }],
+    paths: [{ params: { taskId: '1' } }, { params: { taskId: '2' } }],
     fallback: false, // can also be true or 'blocking'
   }
 };
