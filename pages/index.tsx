@@ -1,8 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import Register from "./register";
+import React from 'react'
 
 const Home: NextPage = () => {
   return (
@@ -159,7 +157,7 @@ const Home: NextPage = () => {
             </div>
             <div className="flex flex-col space-y-3 text-white">
               <a href="#">Terms et confidentialités</a>
-              <a href="#">Conditions d'utilisation</a>
+              <a href="#">Conditions d&apos;utilisation</a>
             </div>
             <div className="hidden text-center my-6 text-white md:block">
               Copyright &copy;2022, All Rights Reserved Ujuzi

@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { NextPage } from "next";
+import React from 'react'
 
 const Footer: NextPage = () => {
   return (
@@ -27,7 +29,7 @@ const Footer: NextPage = () => {
             </div>
             <div className="flex flex-col space-y-3 text-white">
               <a href="#">Terms et confidentialités</a>
-              <a href="#">Conditions d'utilisation</a>
+              <a href="#">Conditions d&apos;utilisation</a>
             </div>
             <div className="hidden text-center my-6 text-white md:block">
               Copyright &copy;2022, All Rights Reserved Ujuzi

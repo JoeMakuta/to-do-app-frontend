@@ -1,22 +1,17 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import type { NextPage } from "next";
-import { useEffect, useState } from "react";
+import React,{ useEffect } from "react";
 import FixedButton from "../../reusableComponent/FixedButton";
 import Header from "../../components/Header";
 import Asidebar from "../../components/Asidebar";
 import AsidebarMobile from "../../components/mobile/Asidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../data/store";
-import { FaAngleRight } from "react-icons/fa";
 import {
-  addTasks,
-  deleteTask,
-  getOneTask,
   getTasks,
-  updateTask,
 } from "../../data/tasks/tasksActions";
 import Task from "../../components/Task";
 import { iTask } from "../../types/task";
-import Link from "next/link";
 
 const Home: NextPage = () => {
   const { tasks } = useSelector((state: any) => state.tasks);

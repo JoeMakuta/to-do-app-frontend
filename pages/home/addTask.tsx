@@ -1,20 +1,15 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import type { NextPage } from "next";
-import { useEffect, useState } from "react";
-import FixedButton from "../../reusableComponent/FixedButton";
+import React,{ useEffect, useState } from "react";
 import Header from "../../components/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../data/store";
 import {
   addTasks,
-  deleteTask,
-  getOneTask,
-  getTasks,
-  updateTask,
 } from "../../data/tasks/tasksActions";
-import Task from "../../components/Task";
 import { iTask, iTaskInput } from "../../types/task";
-import Link from "next/link";
-import Asidebar from "../../components/Asidebar";
 import { BiAddToQueue, BiHome } from "react-icons/bi";
 import { BsTagFill, BsFillFlagFill } from "react-icons/bs";
 import { MdWork } from "react-icons/md";
@@ -33,12 +28,8 @@ const AddTask: NextPage = () => {
     categories: [],
   });
   const {
-    tasks,
-    isSuccess,
     isError,
     errorMessage,
-    typeError,
-    isLoading,
     successMessage,
   } = useSelector((state: any) => state.tasks);
   const router = useRouter();
@@ -48,16 +39,15 @@ const AddTask: NextPage = () => {
     categories: false,
   });
 
-  const displayCat = () => {};
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: any): void => {
     setTaskInput({ ...taskInput, [e.target.name]: e.target.value });
   };
-  const handleChangePriority = (value: number) => {
+  const handleChangePriority = (value: number): void => {
     setTaskInput({ ...taskInput, priority: value });
   };
 
-  const handleAddCategory = (cat: string) => {
+  const handleAddCategory = (cat: string): void => {
     // if categorie already exist we delete it
     if (taskInput.categories.includes(cat)) {
       setTaskInput({
@@ -70,16 +60,16 @@ const AddTask: NextPage = () => {
       categories.push(cat);
       setTaskInput({
         ...taskInput,
-        categories: categories,
+        categories,
       });
     }
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: any) : void => {
     e.preventDefault();
     if (
       taskInput.name === "" ||
-      taskInput.description == "" ||
+      taskInput.description === "" ||
       taskInput.deadline === ""
     ) {
       toast.warn("some important fileds missing");

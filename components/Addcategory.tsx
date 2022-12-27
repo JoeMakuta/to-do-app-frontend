@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React from "react";
 
 const Addcategory = ({
@@ -13,7 +14,7 @@ const Addcategory = ({
     >
       <form
         onSubmit={() => console.log("first")}
-        className={`${isShow == false ? "hidden" : "block"}`}
+        className={`${!isShow ? "hidden" : "block"}`}
       >
         <div className=" flex-col p-2">
           <h3 className="text-gray-300 font-extrabold text-2xl pb-4">

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import Link from "next/link";
 import React from "react";
 import { HiHome } from "react-icons/hi";
@@ -6,7 +7,7 @@ import { BiTime } from "react-icons/bi";
 import { VscAccount } from "react-icons/vsc";
 import { useSelector } from "react-redux";
 
-const Header = () => {
+const Header = (): JSX.Element => {
   const { user } = useSelector((state: any) => state.auth);
   return (
     <div className="w-full  fixed  flex justify-around items-center text-white bg-slate-700 p-2 box-border z-50 shadow-2xl">

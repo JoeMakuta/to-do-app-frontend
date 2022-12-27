@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { FaAngleRight } from "react-icons/fa";
 
-const Asidebar = () => {
+const Asidebar = () : JSX.Element => {
   return (
     <div className="hidden sm:block categories min-w-max text-slate-100 p-2">
       <h2 className="text-2xl py-2">My categories</h2>

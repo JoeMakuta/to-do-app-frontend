@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React from "react";
 import { FaRegClock } from "react-icons/fa";
 import { MdOutlineDownloadDone } from "react-icons/md";
@@ -36,7 +38,7 @@ const Task = ({ task, categorie }: { task: iTask; categorie?: string }) => {
           <span className="text-xs ">{new Date().toLocaleTimeString()}</span>
         </div>
         <div className="text-lg h-full text-slate-100">
-          {task.status == "DONE" ? (
+          {task.status === "DONE" ? (
             <h5 className="bg-green-600 p-2 rounded-full animate-pulse">
               <MdOutlineDownloadDone />
             </h5>

@@ -1,5 +1,9 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+/* eslint-disable no-extra-boolean-cast */
 import type { NextPage } from "next";
-import { FormEvent, useEffect, useState } from "react";
+import React,{ FormEvent, useEffect, useState } from "react";
 import Head from "next/head";
 import TextInput from "../../reusableComponent/TextInput";
 import { ButtonComponent } from "../../reusableComponent/ButtonComponent";
@@ -25,15 +29,15 @@ const Register: NextPage = () => {
     password: "",
     password2: "",
   });
-  const { errorMessage, isError, isLoading, isSuccess, user } = useSelector(
+  const { errorMessage, isError, isSuccess, user } = useSelector(
     (state: any) => state.auth
   );
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: any): void => {
     setValOfInput({ ...ValOfInput, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent): any => {
     e.preventDefault();
     if (ValOfInput.password !== ValOfInput.password2) {
       return toast.error(`passwords must match`);
@@ -179,7 +183,7 @@ const Register: NextPage = () => {
               </div>
               <div className="flex flex-col space-y-3 text-white">
                 <a href="#">Terms et confidentialités</a>
-                <a href="#">Conditions d'utilisation</a>
+                <a href="#">Conditions d&apos;utilisation</a>
               </div>
               <div className="hidden text-center my-6 text-white md:block">
                 Copyright &copy;2022, All Rights Reserved Ujuzi

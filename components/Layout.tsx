@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { useRouter } from "next/router";
-import React, { Component } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import FixedButton from "../reusableComponent/FixedButton";
 import Asidebar from "./Asidebar";
