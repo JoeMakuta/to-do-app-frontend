@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import React from "react";
 
 const SingleTask = (): JSX.Element => {
@@ -8,10 +8,10 @@ const SingleTask = (): JSX.Element => {
 export default SingleTask;
 
 export const getStaticPaths = async (context: any): Promise<any> => {
-  const API = process.env.NEXT_PUBLIC_BACKEND_URI;
+  // const API = process.env.NEXT_PUBLIC_BACKEND_URI;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/restrict-template-expressions
-  const res = await axios.get(`${API}/users`);
+  // const res = await axios.get(`${API}/users`);
    return {
     paths: [{ params: { id: '1' } }, { params: { id: '2' } }],
     fallback: false, // can also be true or 'blocking'
